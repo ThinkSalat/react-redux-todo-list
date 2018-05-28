@@ -17,13 +17,13 @@ const initialState = {
 };
 
 const todosReducer = (state = initialState, action) => {
+  let newState = {};
   switch (action.type) {
     case RECEIVE_TODO:
-      const newState = merge({},state);
+       newState = merge({},state);
       newState[action.todo.id] = action.todo;
       return newState;
     case RECEIVE_TODOS:
-      const newState = {};
       action.todos.forEach(todo =>  {
         newState[todo.id] = todo;
       });
